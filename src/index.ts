@@ -5,9 +5,10 @@ import 'reflect-metadata';
 // import connectRedis from 'connect-redis';
 // import { HelloResolver } from './resolvers/hello';
 import Mongoose from 'mongoose';
+import { forEach } from '@frankycty/rm-extra';
+// const { forEach } = require('@frankycty/rm-extra');
 import Koa from 'koa';
 import Router from '@koa/router';
-const { foreach } = require('@frankycty/ramda-extra');
 const CONFIG = require('config');
 
 const main = async () => {
@@ -67,8 +68,9 @@ const main = async () => {
   }
 
   const registerKoaRoutes = (koaRouter: any, routes: any) => {
-    foreach(({ method, path, handler }: Route) => {
-      koaRouter[method].call(koaRouter, path, handler);
+    forEach(({ method, path, handler }: Route) => {
+      // koaRouter[method].call(koaRouter, path, handler);
+      koaRouter[method](path, handler);
     }, routes);
   };
 

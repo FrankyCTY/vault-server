@@ -14,9 +14,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 require("reflect-metadata");
 const mongoose_1 = __importDefault(require("mongoose"));
+const rm_extra_1 = require("@frankycty/rm-extra");
 const koa_1 = __importDefault(require("koa"));
 const router_1 = __importDefault(require("@koa/router"));
-const { foreach } = require('@frankycty/ramda-extra');
 const CONFIG = require('config');
 const main = () => __awaiter(void 0, void 0, void 0, function* () {
     const app = new koa_1.default();
@@ -42,8 +42,8 @@ const main = () => __awaiter(void 0, void 0, void 0, function* () {
         },
     ];
     const registerKoaRoutes = (koaRouter, routes) => {
-        foreach(({ method, path, handler }) => {
-            koaRouter[method].call(koaRouter, path, handler);
+        rm_extra_1.forEach(({ method, path, handler }) => {
+            koaRouter[method](path, handler);
         }, routes);
     };
     registerKoaRoutes(koaRouter, routes);
