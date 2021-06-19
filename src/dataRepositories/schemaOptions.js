@@ -2,7 +2,7 @@ export const getSchemaBaseOptions = () => ({
   toObject: {
     getters: true,
     versionKey: false,
-    transform(_: any, { _id, ...ret }: any) {
+    transform(_, { _id, ...ret }) {
       return { id: _id, ...ret };
     },
   },
