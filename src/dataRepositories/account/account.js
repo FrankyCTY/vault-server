@@ -1,7 +1,7 @@
-import mongoose from 'mongoose';
-import { getSchemaBaseOptions } from '../schemaOptions';
+import mongoose from 'mongoose'
+import { getSchemaBaseOptions } from '../schemaOptions'
 
-const { Schema, model } = mongoose;
+const { Schema, model } = mongoose
 
 const AccountSchema = new Schema(
   {
@@ -9,6 +9,6 @@ const AccountSchema = new Schema(
     password: String,
   },
   getSchemaBaseOptions()
-);
+)
 
-export const Account = model('Account', AccountSchema);
+export const Account = model('Account', AccountSchema)

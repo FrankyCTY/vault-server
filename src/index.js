@@ -1,9 +1,8 @@
-import 'reflect-metadata';
 // import redis from 'redis';
 // import connectRedis from 'connect-redis';
-import Mongoose from 'mongoose';
-import { Server } from '@frankycty/node-framework';
-const CONFIG = require('config');
+import Mongoose from 'mongoose'
+import { Server } from '@frankycty/node-framework'
+import CONFIG from 'config'
 
 const main = async () => {
   // ============= Connect with Redis =========================
@@ -19,9 +18,9 @@ const main = async () => {
     useCreateIndex: true,
     useFindAndModify: false,
     useUnifiedTopology: true,
-  };
+  }
 
-  await Mongoose.connect(CONFIG.db.uri, connectionOpts);
+  await Mongoose.connect(CONFIG.db.uri, connectionOpts)
 
   const routes = [
     {
@@ -30,12 +29,12 @@ const main = async () => {
       handler: (ctx, _) => {
         ctx.body = {
           status: 'success',
-        };
+        }
       },
     },
-  ];
+  ]
 
-  await Server.start(routes, [], { port: CONFIG.server.port });
-};
+  await Server.start(routes, [], { port: CONFIG.server.port })
+}
 
-main();
+main()

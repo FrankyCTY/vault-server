@@ -1,0 +1,16 @@
+{
+  "extends": "@frankycty/eslint-config-base",
+  "env": {
+    "node": true
+  },
+  "rules": {
+    "import/no-cycle": [
+      2,
+      {
+        "maxDepth": 1
+      }
+    ],
+    "complexity": [2, { "max": 5 }],
+    "no-console": "error"
+  }
+}
