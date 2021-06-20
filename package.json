@@ -10,7 +10,6 @@
     "pre:start": "cross-env NODE_PATH=./src",
     "dev": "yarn pre:start && ./node_modules/.bin/nodemon ./src/index.js --exec babel-node index",
     "start": "nod ./src/index.js",
-    "create:migration": "mikro-orm migration:create",
     "bootstrap:dep": "yarn && yarn watch",
     "reboot:dep": "rm yarn.lock && rm -rf ./dist && rm -rf ./node_modules && yarn bootstrap:dep"
   },
@@ -28,7 +27,7 @@
     "prettier": "^2.3.1"
   },
   "dependencies": {
-    "@frankycty/node-framework": "^1.0.6",
+    "@frankycty/node-framework": "^1.2.1",
     "@frankycty/rm-extra": "^1.1.2",
     "argon2": "^0.28.1",
     "config": "^3.3.6",
